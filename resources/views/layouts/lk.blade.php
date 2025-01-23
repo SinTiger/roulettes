@@ -126,6 +126,14 @@
                             <i class="nav-icon fas fa-home"></i>&nbsp; <p>Главная</p>
                         </a>
 
+                        <a href="{{ route('supply.index') }}" class="nav-link <?= $link == 'supply' ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-parachute-box"></i></i>&nbsp; <p>Поставки</p>
+                        </a>
+
+                        <a href="{{ route('warehouse.index') }}" class="nav-link <?= $link == 'warehouse' ? 'active' : '' ?>">
+                            <i class="nav-icon fas fa-cash-register"></i></i>&nbsp; <p>Продажи</p>
+                        </a>
+
                         <a href="{{ route('warehouse.index') }}" class="nav-link <?= $link == 'warehouse' ? 'active' : '' ?>">
                             <i class="nav-icon fas fa-warehouse"></i></i>&nbsp; <p>Склады</p>
                         </a>

@@ -7,6 +7,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\SupplyController;
 use App\Http\Controllers\BuyerController;
 
 /*
@@ -39,6 +40,16 @@ Route::prefix('dev')->middleware('auth')->group(function () {
 
 Route::prefix('main')->controller(MainController::class)->middleware('auth')->group(function () {
     Route::get('/', 'index')->name('main.index');
+});
+
+Route::prefix('supply')->controller(SupplyController::class)->middleware('auth')->group(function () {
+    Route::get('/', 'index')->name('supply.index');
+    Route::get('/create', 'create')->name('supply.create');
+    Route::post('/', 'store')->name('supply.store');
+    Route::get('/{supply}', 'show')->name('supply.show');
+    Route::get('/{supply}/edit', 'edit')->name('supply.edit');
+    Route::patch('/{supply}', 'update')->name('supply.update');
+    Route::delete('/{supply}', 'destroy')->name('supply.destroy');
 });
 
 Route::prefix('warehouse')->controller(WarehouseController::class)->middleware('auth')->group(function () {
