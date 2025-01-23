@@ -1,0 +1,123 @@
+@extends('layouts.lk')
+
+@section('content')
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Склады</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              {{-- <li class="breadcrumb-item"><a href="#">Home</a></li> --}}
+              <li class="breadcrumb-item active">Склады</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-sm-12">
+                @if (session('message'))
+                    <div class="alert alert-info alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-info"></i>Предупреждение!</h5>
+                        {{session('message')}}
+                    </div>
+                @endif
+                @if (!empty($error))
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-ban"></i>Ошибка!</h5>
+                        {{$error}}
+                    </div>
+                @endif
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <a href="{{ route('warehouse.create') }}" class="btn btn-block btn-primary">Создать склад</a>
+            </div>
+        </div>
+
+
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Склады</h3>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th >
+                          Название
+                      </th>
+                      <th >
+                          Адрес
+                      </th>
+                      <th >
+                          Кол-во товаров
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                @foreach ($items as $item)
+                    <tr>
+                      <td>
+                        <a href="{{route('warehouse.show', $item->id)}}">{{$item->name}}</a>
+                      </td>
+                      <td>
+                        {{$item->address}}
+                      </td>
+                      <td>
+                        5944
+                      </td>
+
+                      {{-- <td class="project-actions text-right"> --}}
+                          {{-- <a class="btn btn-info btn-sm" href="{{route('warehouse.show', $store->id)}}">
+                              <i class="fas fa-pencil-alt"></i> Редактировать
+                          </a>
+
+                          <a class="btn btn-danger btn-sm" onclick="deleteItem('{{$store->name}} ({{$store->id}})', '{{$store->id}}')">
+                              <i class="fas fa-trash"></i>
+                              Удалить
+                          </a>
+                          <form action="{{route('warehouse.destroy', $store->id)}}" method="post" style="display:none;">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger btn-sm" id="js-click-delete-item-{{$store->id}}" style="">Удалить</button>
+                          </form> --}}
+
+                      {{-- </td> --}}
+                  </tr>
+                @endforeach
+
+
+
+              </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+
+
+
+
+
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+@endsection
+
+
+
