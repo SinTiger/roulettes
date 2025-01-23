@@ -6,11 +6,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Создать поставку</h1>
+            <h1 class="m-0">Создать продажу</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Создать поставку</li>
+              <li class="breadcrumb-item active">Создать продажу</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -42,17 +42,17 @@
                     </div>
                     <div class="card-body" style="display: block;">
 
-                        <form action="{{route('supply.store')}}" method="POST">
+                        <form action="{{route('sale.store')}}" method="POST">
                             @csrf
 
                             <div class="form-group">
-                                <label>Поставщик*</label>
-                                <select name="supplier_id" class="form-control select2" style="width: 100%;">
-                                    @foreach ($suppliers as $item)
+                                <label>Покупатель*</label>
+                                <select name="buyer_id" class="form-control select2" style="width: 100%;">
+                                    @foreach ($buyers as $item)
                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                     @endforeach
                                 </select>
-                                @error('supplier_id')
+                                @error('buyer_id')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>

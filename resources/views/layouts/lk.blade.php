@@ -130,7 +130,7 @@
                             <i class="nav-icon fas fa-parachute-box"></i></i>&nbsp; <p>Поставки</p>
                         </a>
 
-                        <a href="{{ route('warehouse.index') }}" class="nav-link <?= $link == 'warehouse' ? 'active' : '' ?>">
+                        <a href="{{ route('sale.index') }}" class="nav-link <?= $link == 'sale' ? 'active' : '' ?>">
                             <i class="nav-icon fas fa-cash-register"></i></i>&nbsp; <p>Продажи</p>
                         </a>
 

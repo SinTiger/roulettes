@@ -7,8 +7,9 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\SupplyController;
 use App\Http\Controllers\BuyerController;
+use App\Http\Controllers\SupplyController;
+use App\Http\Controllers\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,16 @@ Route::prefix('supply')->controller(SupplyController::class)->middleware('auth')
     Route::get('/{supply}/edit', 'edit')->name('supply.edit');
     Route::patch('/{supply}', 'update')->name('supply.update');
     Route::delete('/{supply}', 'destroy')->name('supply.destroy');
+});
+
+Route::prefix('sale')->controller(SaleController::class)->middleware('auth')->group(function () {
+    Route::get('/', 'index')->name('sale.index');
+    Route::get('/create', 'create')->name('sale.create');
+    Route::post('/', 'store')->name('sale.store');
+    Route::get('/{sale}', 'show')->name('sale.show');
+    Route::get('/{sale}/edit', 'edit')->name('sale.edit');
+    Route::patch('/{sale}', 'update')->name('sale.update');
+    Route::delete('/{sale}', 'destroy')->name('sale.destroy');
 });
 
 Route::prefix('warehouse')->controller(WarehouseController::class)->middleware('auth')->group(function () {
