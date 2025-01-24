@@ -61,6 +61,7 @@
             <div class="col-12 col-md-12 col-lg-10 order-1 order-md-2">
                 <h3 class="text-primary">{{$supply->product->name}}</h3>
                 <p>Поставщик: {{$supply->supplier->name}}</p>
+                <p>Склад: {{$supply->warehouse->name}}</p>
                 <p>Кол-во: {{$supply->quantity}}</p>
                 <p>Цена: {{$supply->price}}</p>
                 <p>Сумма: {{$supply->price * $supply->quantity}}</p>

@@ -64,10 +64,43 @@
                 <h3 class="text-primary"><i class="fas fa-warehouse"></i>&nbsp; {{$warehouse->name}}</h3>
                 <p>Адрес: {{$warehouse->address}}</p>
 
-                <p>[TODO: Список товаров]</p>
-
             </div>
           </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Товары на складе</h3>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th>
+                          Название
+                      </th>
+                      <th>
+                          Кол-во
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                @foreach ($warehouse->products as $product)
+                    @if ($product->pivot->quantity != 0)
+                    <tr>
+                      <td>
+                        <a href="{{route('product.show', $product->id)}}">{{$product->name}}</a>
+                      </td>
+                      <td>
+                        {{$product->pivot->quantity}}
+                      </td>
+                    </tr>
+                    @endif
+                @endforeach
+              </tbody>
+          </table>
         </div>
         <!-- /.card-body -->
       </div>

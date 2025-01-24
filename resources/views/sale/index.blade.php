@@ -66,6 +66,9 @@
                         Покупатель
                       </th>
                       <th>
+                        Склад
+                      </th>
+                      <th>
                         Кол-во
                       </th>
                       <th>
@@ -84,6 +87,9 @@
                       </td>
                       <td>
                         {{$item->buyer->name}}
+                      </td>
+                      <td>
+                        {{$item->warehouse->name}}
                       </td>
                       <td>
                         {{$item->quantity}}

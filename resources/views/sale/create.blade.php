@@ -31,6 +31,13 @@
                         {{session('message')}}
                     </div>
                 @endif
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h5><i class="icon fas fa-ban"></i>Ошибка!</h5>
+                        {{session('error')}}
+                    </div>
+                @endif
             </div>
         </div>
 
@@ -53,6 +60,18 @@
                                     @endforeach
                                 </select>
                                 @error('buyer_id')
+                                    <div class="text-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>Склад*</label>
+                                <select name="warehouse_id" class="form-control select2" style="width: 100%;">
+                                    @foreach ($warehouses as $item)
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('warehouse_id')
                                     <div class="text-danger mt-1">{{ $message }}</div>
                                 @enderror
                             </div>

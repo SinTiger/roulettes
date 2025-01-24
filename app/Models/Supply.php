@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Supplier;
 use App\Models\Product;
+use App\Models\Warehouse;
 
 class Supply extends Model
 {
@@ -22,5 +23,9 @@ class Supply extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class);
     }
 }

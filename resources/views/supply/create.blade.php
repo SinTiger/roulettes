@@ -58,6 +58,18 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Склад*</label>
+                                <select name="warehouse_id" class="form-control select2" style="width: 100%;">
+                                    @foreach ($warehouses as $item)
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('warehouse_id')
+                                    <div class="text-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label>Товар*</label>
                                 <select name="product_id" class="form-control select2" style="width: 100%;">
                                     @foreach ($products as $item)

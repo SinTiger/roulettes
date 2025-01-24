@@ -23,6 +23,7 @@ class SupplyRequest extends FormRequest
     {
         return [
             'supplier_id' => 'required|integer',
+            'warehouse_id' => 'required|integer',
             'product_id' => 'required|integer',
             'quantity' => 'required|integer',
             'price' => 'required|integer',
@@ -34,12 +35,14 @@ class SupplyRequest extends FormRequest
     {
         return [
             'supplier_id.required' => 'Поле обязательно для заполнения',
+            'warehouse_id.required' => 'Поле обязательно для заполнения',
             'product_id.required' => 'Поле обязательно для заполнения',
             'quantity.required' => 'Поле обязательно для заполнения',
             'price.required' => 'Поле обязательно для заполнения',
             'date.required' => 'Поле обязательно для заполнения',
 
             'supplier_id.integer' => 'Поле должно быть числом',
+            'warehouse_id.integer' => 'Поле должно быть числом',
             'product_id.integer' => 'Поле должно быть числом',
             'quantity.integer' => 'Поле должно быть числом',
             'price.integer' => 'Поле должно быть числом',
