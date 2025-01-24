@@ -21,6 +21,9 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+
+
+
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-sm-12">
@@ -41,51 +44,23 @@
             </div>
         </div>
 
+        <div class="row">
+            @foreach ($warehouses as $warehouse)
+            <a href="{{route('warehouse.show', $warehouse->id)}}"  class="col-lg-3 col-6">
+                <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>{{$warehouse->products->count()}}</h3>
+                    <p>{{$warehouse->name}}</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-warehouse"></i>
+                </div>
+                <div class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></div>
+                </div>
+            </a>
+            @endforeach
 
-      <!-- Default box -->
-      [Сделать здесь вывод складов, которые есть в системе]
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Запасы</h3>
         </div>
-        <div class="card-body p-0">
-          <table class="table table-striped projects">
-              <thead>
-                  <tr>
-                      <th style="width: 10%">
-                          Товар
-                      </th>
-                      <th style="width: 10%">
-                          Кол-во
-                      </th>
-                      <th style="width: 10%">
-                          Склад
-                      </th>
-                  </tr>
-              </thead>
-              <tbody>
-                {{-- @foreach ($data as $assistant) --}}
-                    <tr>
-                      <td>
-                        Товар 1
-                      </td>
-                      <td>
-                        59
-                      </td>
-                      <td>
-                        Склад 1
-                      </td>
-                    </tr>
-                {{-- @endforeach --}}
-              </tbody>
-          </table>
-        </div>
-        <!-- /.card-body -->
-      </div>
-
-
-
-
 
       </div><!-- /.container-fluid -->
     </section>

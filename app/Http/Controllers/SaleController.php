@@ -35,7 +35,7 @@ class SaleController extends Controller
         // смотрим, достаточно ли товаров и убавляем их
         $warehouse = Warehouse::find($data['warehouse_id']);
         $product = $warehouse->products()->find($data['product_id']);
-        if ($product->pivot->quantity >= $data['quantity']) { // если товара достаточно, то убавляем
+        if ($product != null && $product->pivot->quantity >= $data['quantity']) { // если товара достаточно, то убавляем
             $product->pivot->update(['quantity' => $product->pivot->quantity - $data['quantity']]);
         } else { // иначе выдаем ошибку
             $error = 'Данного товара недостаточно на складе';

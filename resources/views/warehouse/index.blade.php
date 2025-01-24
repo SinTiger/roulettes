@@ -65,9 +65,6 @@
                       <th >
                           Адрес
                       </th>
-                      <th >
-                          Кол-во товаров
-                      </th>
                   </tr>
               </thead>
               <tbody>
@@ -79,26 +76,6 @@
                       <td>
                         {{$item->address}}
                       </td>
-                      <td>
-                        5944
-                      </td>
-
-                      {{-- <td class="project-actions text-right"> --}}
-                          {{-- <a class="btn btn-info btn-sm" href="{{route('warehouse.show', $store->id)}}">
-                              <i class="fas fa-pencil-alt"></i> Редактировать
-                          </a>
-
-                          <a class="btn btn-danger btn-sm" onclick="deleteItem('{{$store->name}} ({{$store->id}})', '{{$store->id}}')">
-                              <i class="fas fa-trash"></i>
-                              Удалить
-                          </a>
-                          <form action="{{route('warehouse.destroy', $store->id)}}" method="post" style="display:none;">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger btn-sm" id="js-click-delete-item-{{$store->id}}" style="">Удалить</button>
-                          </form> --}}
-
-                      {{-- </td> --}}
                   </tr>
                 @endforeach
 
